@@ -5,25 +5,19 @@ public class Concessionaria {
 
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        System.out.println("Informe a SIGLA do estado");
-        String sigla = ler.nextLine();
-        System.out.println("Informe a nome do estado");
-        String estado = ler.nextLine();
         
-        Estado e = new Estado(estado, sigla);
         
-        System.out.println("Informe a cidade: ");
-        String cidade = ler.nextLine();
-        Cidade c = new Cidade(cidade, e);
+        Estado e = new Estado();
+        e.cadastrar();
         
-        System.out.println("Informe o Endereco: ");
-        String rua = ler.nextLine();
-        System.out.println("Informe numero: ");
-        int numero = ler.nextInt();
-        ler.nextLine();
-        System.out.println("Informe o Bairro: ");
-        String bairro = ler.nextLine();
-        Endereco end = new Endereco(rua, numero, bairro, c);
+        Cidade c = new Cidade();
+        c.cadastrar();
+        
+
+        
+        
+        Endereco end = new Endereco();
+        end.cadastrar();
         
         System.out.println("Informe a marca do carro: ");
         String marca = ler.nextLine();

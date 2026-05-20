@@ -1,5 +1,7 @@
 package com.mycompany.concessionaria;
 
+import java.util.Scanner;
+
 public class Endereco {
     
     private String rua;
@@ -47,8 +49,35 @@ public class Endereco {
         this.cidade = cidade;
     }
     public void exibir(){
-        System.out.println("Rua: " + this.rua + ", " + this.numero + " - Bairro: " + this.bairro);
-        System.out.println("Cidade: " + this.cidade.getNome() + "/" + this.cidade.getEstado().getUf());
+//        System.out.println("Rua: " + this.rua + ", " + this.numero + " - Bairro: " + this.bairro);
+//        System.out.println("Cidade: " + this.cidade.getNome() + "/" + this.cidade.getEstado().getUf());
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Rua: " + this.rua + ", " + this.numero + 
+                " - Bairro: " + this.bairro + "\n" + this.cidade.toString();
+    }
+    
+    
+    public Endereco(){
+        
+    }
+    
+    public void cadastrar(){
+        Scanner ler = new Scanner(System.in);
+        System.out.print("Informe o Endereco: ");
+        this.rua = ler.nextLine();
+        System.out.print("Informe numero: ");
+        this.numero = ler.nextInt();
+        ler.nextLine();
+        System.out.print("Informe o Bairro: ");
+        this.bairro = ler.nextLine();
+        if( this.cidade == null ){
+            this.cidade = new Cidade();
+        }
+        this.cidade.cadastrar();
     }
     
 }
